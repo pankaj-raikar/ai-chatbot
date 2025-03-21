@@ -1,3 +1,5 @@
+import { allmodels } from './openai-compatible-models';
+
 export const DEFAULT_CHAT_MODEL: string = 'chat-model';
 
 interface ChatModel {
@@ -5,6 +7,13 @@ interface ChatModel {
   name: string;
   description: string;
 }
+
+// Generate additional chat models from the allmodels array
+const additionalModels = allmodels.map(model => ({
+  id: model.id,
+  name: model.base_model,
+  description: `${model.provider} - ${model.base_model}`,
+}));
 
 export const chatModels: Array<ChatModel> = [
   {
@@ -17,4 +26,5 @@ export const chatModels: Array<ChatModel> = [
     name: 'Reasoning model',
     description: 'Uses advanced reasoning',
   },
+  ...additionalModels
 ];

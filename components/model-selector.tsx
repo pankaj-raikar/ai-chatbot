@@ -48,7 +48,7 @@ export function ModelSelector({
           <ChevronDownIcon />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="start" className="min-w-[300px]">
+      <DropdownMenuContent align="start" className="min-w-[300px] max-h-[300px] overflow-y-auto">
         {chatModels.map((chatModel) => {
           const { id } = chatModel;
 
